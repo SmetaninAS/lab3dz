@@ -2,6 +2,8 @@
 #include "test1.h"
 #include <cassert>
 #include "histogram.h"
+#include "svg.h"
+const auto BIN_HEIGHT = 30;
 using namespace std;
 void
 test_positive() {
@@ -46,4 +48,16 @@ void test_empty()
     find_minmax({}, min, max);
     assert(min ==0);
     assert(max == 0);
+}
+void test_lishnya_liniya()
+{
+    double top = 0;
+    show_histogram_svg({1,2,3},3,20,10);
+    assert (top=BIN_HEIGHT);
+}
+void test_bins0()
+{
+    double top=0;
+    show_histogram_svg({},3,20,10);
+    assert (top=0);
 }
